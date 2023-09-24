@@ -5,7 +5,7 @@
 
 void injected_thread() {
 	while (true) {
-		// GetAsyncKeyState will constantly return true while key is held down
+		// GetAsyncKeyState will constantly return 1 while key is held down and 0 if not
 		if (GetAsyncKeyState(0x4D)) {  // 0x4D = m
 			
 		}
