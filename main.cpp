@@ -7,7 +7,10 @@ void injected_thread() {
 	while (true) {
 		// GetAsyncKeyState will constantly return 1 while key is held down and 0 if not
 		if (GetAsyncKeyState(0x4D)) {  // 0x4D = m
-			MessageBox(0, 0, 0, 0);
+			DWORD* player_base = (DWORD*)0x017EED18; // this the the base pointer value
+			DWORD* offset1 = (DWORD*)(*player_base + 0xA90); // ofsets from the base value
+			DWORD* playerGold = (DWORD*)(*offset1 + 4);// ofsets again
+			*playerGold = 459;
 		}
 		Sleep(1);
 	}
